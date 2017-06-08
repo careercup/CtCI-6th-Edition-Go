@@ -6,9 +6,8 @@ func IsUnique(input string) bool {
 	for _, r := range input {
 		if _, ok := seen[r]; ok {
 			return false
-		} else {
-			seen[r] = struct{}{}
-		}
+		} 
+		seen[r] = struct{}{}
 	}
 	return true
 }
