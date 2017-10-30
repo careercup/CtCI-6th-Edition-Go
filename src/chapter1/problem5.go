@@ -16,10 +16,9 @@ func oneRemovalAway(smaller, larger string) bool {
 		if r1 != r2 {
 			if removalSeen {
 				return false
-			} else {
-				width1 = 0
-				removalSeen = true
 			}
+			width1 = 0
+			removalSeen = true
 		}
 	}
 	return true
@@ -41,9 +40,8 @@ func AreOneEditAway(input1, input2 string) bool {
 			if r1 != r2 {
 				if diffSeen {
 					return false
-				} else {
-					diffSeen = true
 				}
+				diffSeen = true
 			}
 		}
 		return true
