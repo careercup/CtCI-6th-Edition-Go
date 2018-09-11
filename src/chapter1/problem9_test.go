@@ -20,7 +20,7 @@ func TestIsRotation(t *testing.T) {
 	for _, c := range cases {
 		actual := IsRotation(c.input1, c.input2)
 		if actual != c.expected {
-			t.Fatalf("Inputs %s, %s. Expected: %b, actual: %b\n",
+			t.Fatalf("Inputs %s, %s. Expected: %t, actual: %t\n",
 				c.input1, c.input2, c.expected, actual)
 		}
 	}
