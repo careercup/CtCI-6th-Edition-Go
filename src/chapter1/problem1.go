@@ -12,3 +12,18 @@ func IsUnique(input string) bool {
 	}
 	return true
 }
+
+// Using no additional data structures. Assumes the string only contains alphabet.
+func IsUniqueB(input string) bool {
+	seen := 0
+	for _, r := range input {
+		rBit := 1 << uint32(r-'A')
+		if (seen & rBit) != 0 {
+			return false
+		}
+
+		seen |= rBit
+
+	}
+	return true
+}
