@@ -18,7 +18,7 @@ func TestIsPalindromePerm(t *testing.T) {
 	for _, c := range cases {
 		actual := IsPalindromePerm(c.input)
 		if actual != c.expected {
-			t.Fatalf("Input %s. Expected: %b, actual: %b\n", c.input, c.expected, actual)
+			t.Fatalf("Input %s. Expected: %t, actual: %t\n", c.input, c.expected, actual)
 		}
 	}
 }

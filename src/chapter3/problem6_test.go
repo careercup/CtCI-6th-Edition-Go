@@ -16,20 +16,20 @@ func TestPetShelter(t *testing.T) {
 		t.Fatalf("Unexpected error: %v\n", err)
 	}
 	if i.petType != DogType || i.name != "lucky" {
-		t.Fatalf("Expected: lucky, actual: %d\n", i.name)
+		t.Fatalf("Expected: lucky, actual: %s\n", i.name)
 	}
 	i, err = ps.dequeueDog()
 	if err != nil {
 		t.Fatalf("Unexpected error: %v\n", err)
 	}
 	if i.petType != DogType || i.name != "spot" {
-		t.Fatalf("Expected: spot, actual: %d\n", i.name)
+		t.Fatalf("Expected: spot, actual: %s\n", i.name)
 	}
 	i, err = ps.dequeueCat()
 	if err != nil {
 		t.Fatalf("Unexpected error: %v\n", err)
 	}
 	if i.petType != CatType || i.name != "snowball" {
-		t.Fatalf("Expected: snowball, actual: %d\n", i.name)
+		t.Fatalf("Expected: snowball, actual: %s\n", i.name)
 	}
 }
