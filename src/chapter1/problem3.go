@@ -50,3 +50,30 @@ func URLifySlice(input []rune) {
 		}
 	}
 }
+
+func URLifySliceWithLength(input []rune, realLength int) []rune {
+	inWord := false
+
+	slowPtr := len(input) - 1
+	movedChar := 0
+
+	for i := slowPtr; i >= 0 && movedChar < realLength; i-- {
+		if input[i] == rune(' ') {
+			if inWord {
+				input[slowPtr-2] = rune('%')
+				input[slowPtr-1] = rune('2')
+				input[slowPtr] = rune('0')
+				slowPtr -= 3
+				movedChar++
+			}
+		} else {
+			if !inWord {
+				inWord = true
+			}
+			input[slowPtr] = input[i]
+			movedChar++
+			slowPtr--
+		}
+	}
+	return input[slowPtr+1:]
+}
