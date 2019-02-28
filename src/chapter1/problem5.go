@@ -53,3 +53,35 @@ func AreOneEditAway(input1, input2 string) bool {
 		return oneRemovalAway(input1, input2)
 	}
 }
+
+func AreOneEditAwayB(input1, input2 string) bool {
+
+	longerOne, shorterOne := input1, input2
+	if len(longerOne) < len(shorterOne) {
+		longerOne = input2
+		shorterOne = input1
+	}
+	longerLength, shorterLength := len(longerOne), len(shorterOne)
+	if (longerLength - shorterLength) > 1 {
+		return false
+	}
+
+	diffFound := false
+	for i, j := 0, 0; i < longerLength && j < shorterLength; i++ {
+
+		if longerOne[i] != shorterOne[j] {
+			if diffFound {
+				return false
+			} else {
+				diffFound = true
+			}
+			if longerLength == shorterLength {
+				j++
+			}
+		} else {
+			j++
+		}
+	}
+
+	return true
+}
