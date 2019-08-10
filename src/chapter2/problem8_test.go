@@ -50,6 +50,10 @@ func TestFindLoopNodePositive(t *testing.T) {
 		},
 		{
 			[]int{100, 101, 102, 103, 104},
+			1,
+		},
+		{
+			[]int{100, 101, 102, 103, 104},
 			4,
 		},
 	}
