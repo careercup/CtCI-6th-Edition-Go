@@ -15,3 +15,14 @@ func TestPivotAroundValue(t *testing.T) {
 		t.Fatalf("Expected: %v, actual: %v\n", expected, actual)
 	}
 }
+
+func TestPivotAroundValueB(t *testing.T) {
+	vals := []int{1, 10, 20, 4, 7, 10, 3, 25}
+	ll := GetLinkedListFromValues(vals)
+	ll.PivotAroundValueB(10)
+	expected := []int{1, 4, 7, 3, 10, 10, 20, 25}
+	actual := ll.Slice()
+	if !reflect.DeepEqual(expected, actual) {
+		t.Fatalf("Expected: %v, actual: %v\n", expected, actual)
+	}
+}

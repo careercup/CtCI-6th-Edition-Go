@@ -1,6 +1,7 @@
 package chapter1
 
 import (
+	"bytes"
 	"strconv"
 )
 
@@ -22,4 +23,29 @@ func BasicCompress(input string) string {
 	} else {
 		return compStr
 	}
+}
+
+func BasicCompressB(input string) string {
+	var compressed bytes.Buffer
+	counter := 1
+	inputLen := len(input)
+	for i := 1; i < inputLen; i++ {
+
+		if input[i-1] == input[i] {
+			counter++
+		} else {
+			compressed.WriteByte(input[i-1])
+			compressed.WriteString(strconv.Itoa(counter))
+			counter = 1
+		}
+		if compressed.Len() >= inputLen {
+			return input
+		}
+	}
+	compressed.WriteByte(input[inputLen-1])
+	compressed.WriteString(strconv.Itoa(counter))
+	if compressed.Len() >= inputLen {
+		return input
+	}
+	return compressed.String()
 }

@@ -39,3 +39,22 @@ func TestURLifySlice(t *testing.T) {
 		}
 	}
 }
+
+func TestURLifySliceB(t *testing.T) {
+	cases := []struct {
+		input      []rune
+		expected   []rune
+		realLength int
+	}{
+		{[]rune("hello my name is           "), []rune("hello%20my%20name%20is"), 16},
+		{[]rune("hello"), []rune("hello"), 5},
+		{[]rune(" hello my name is           "), []rune("%20hello%20my%20name%20is"), 17},
+		{[]rune("  hello my name is             "), []rune("%20hello%20my%20name%20is"), 17},
+	}
+	for _, c := range cases {
+		result := URLifySliceWithLength(c.input, c.realLength)
+		if !reflect.DeepEqual(c.expected, result) {
+			t.Fatalf("Expected: %s, actual: %s\n", string(c.expected), string(result))
+		}
+	}
+}
