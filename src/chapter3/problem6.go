@@ -9,9 +9,9 @@ import (
 // Would be much easier if Go had generics.
 
 type PetInfo struct {
-	petType PetType
-	name    string
 	arrived time.Time
+	name    string
+	petType PetType
 }
 
 type PetType int

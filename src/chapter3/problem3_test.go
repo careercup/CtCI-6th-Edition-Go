@@ -15,7 +15,7 @@ func TestSliceMultiStackPushThenPop(t *testing.T) {
 		s.Push(val)
 	}
 	actual := make([]int, len(vals))
-	for i, _ := range vals {
+	for i := range vals {
 		val, err := s.Pop()
 		if err != nil {
 			t.Fatalf("Unexpected error: %v\n", err)
@@ -59,7 +59,7 @@ func TestSliceMultiStackPushThenPopAt(t *testing.T) {
 		s.Push(val)
 	}
 	actual = make([]int, len(vals)+1)
-	for i, _ := range actual {
+	for i := range actual {
 		val, err := s.Pop()
 		if err != nil {
 			t.Fatalf("Unexpected error: %v\n", err)

@@ -16,8 +16,8 @@ type Stack struct {
 }
 
 type stackNode struct {
-	value int
 	prev  *stackNode
+	value int
 }
 
 func (s *Stack) Push(value int) {

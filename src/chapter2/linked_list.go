@@ -7,9 +7,10 @@ type DoublyLinkedList struct {
 }
 
 type node struct {
+	next *node
+	prev *node
+
 	value int
-	next  *node
-	prev  *node
 }
 
 func GetLinkedList() *DoublyLinkedList {

@@ -16,8 +16,8 @@ type Queue struct {
 }
 
 type queueNode struct {
-	value      int
 	prev, next *queueNode
+	value      int
 }
 
 func (s *Queue) Add(value int) {

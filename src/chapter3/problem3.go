@@ -17,7 +17,7 @@ type SetOfStacks struct {
 
 func GetSetOfStacks(max int) *SetOfStacks {
 	return &SetOfStacks{
-		[]*Stack{&Stack{}},
+		[]*Stack{{}},
 		[]int{0},
 		max,
 		0,

@@ -12,7 +12,7 @@ func TestLinkedListInsertAndGet(t *testing.T) {
 		ll.Insert(val)
 	}
 	actual := make([]int, len(vals))
-	for i, _ := range vals {
+	for i := range vals {
 		actual[i] = ll.Get(i)
 	}
 	if ll.Len() != len(vals) {
@@ -27,7 +27,7 @@ func TestLinkedListConstructor(t *testing.T) {
 	vals := []int{1, 2, 3, 4}
 	ll := GetLinkedListFromValues(vals)
 	actual := make([]int, len(vals))
-	for i, _ := range vals {
+	for i := range vals {
 		actual[i] = ll.Get(i)
 	}
 	if ll.Len() != len(vals) {
